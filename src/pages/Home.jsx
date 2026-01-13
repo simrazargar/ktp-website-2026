@@ -5,7 +5,6 @@ import OurValues from '../components/OurValues'
 import NetworkAndAlumni from '../components/NetworkAndAlumni'
 import SocialLife from '../components/SocialLife'
 import Contact from '../components/Contact'
-import ktpPledge from './ktp-pledge.jpg';
 
 
 function Home({ fadeInComplete = true }) {
@@ -41,7 +40,6 @@ function Home({ fadeInComplete = true }) {
         shouldStart={currentSection === 5}
         onSectionComplete={() => handleSectionComplete(5)}
       />
-      <img src={ktpPledge} alt="KTP Pledge" />
     </>
   )
 }
