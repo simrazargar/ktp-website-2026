@@ -53,47 +53,6 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-.who-we-are-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.who-we-are-image-placeholder {
-  width: 100%;
-  max-width: 1000px;
-  height: 400px;
-  background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6b 100%);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-secondary);
-  font-size: 1.2rem;
-  border: 2px dashed rgba(255, 255, 255, 0.2);
-  font-family: 'Outfit', sans-serif;
-}
-
-.who-we-are-image {
-  width: 100%;
-  max-width: 950px;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.who-we-are-image:hover {
-  transform: scale(1.05);
-}
-
 .fade-in-title {
   opacity: 0;
   transform: translateY(20px);
@@ -154,14 +113,6 @@
 
   .who-we-are-description {
     font-size: 1rem;
-  }
-
-  .who-we-are-image-placeholder {
-    height: 300px;
-  }
-
-  .who-we-are-image {
-    max-width: 100%;
   }
 }
 
