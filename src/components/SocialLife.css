@@ -1,0 +1,121 @@
+.social-life {
+  padding: 5rem 2rem;
+  background-color: var(--primary-bg);
+  font-family: 'Outfit', sans-serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-life-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.social-life-description {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  font-family: 'Outfit', sans-serif;
+}
+
+.social-carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.social-carousel {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.social-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.social-carousel-item {
+  flex: 0 0 auto;
+  width: 300px;
+  height: 250px;
+  border-radius: 12px;
+  overflow: visible;
+  transition: transform 0.3s ease;
+}
+
+.social-carousel-item:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  position: relative;
+}
+
+.social-carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  animation: none !important;
+}
+
+/* Prevent float animation on carousel items and images */
+.social-carousel-item,
+.social-carousel-item img,
+.social-carousel-wrapper .social-carousel-item,
+.social-carousel-wrapper .social-carousel-image {
+  animation: none !important;
+}
+
+@media (max-width: 968px) {
+  .social-carousel-item {
+    width: 250px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-life {
+    padding: 4rem 1.5rem;
+  }
+
+  .social-carousel-item {
+    width: 200px;
+    height: 180px;
+  }
+
+  .social-life-description {
+    font-size: 1rem;
+  }
+}
+
+.fade-in-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

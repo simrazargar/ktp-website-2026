@@ -1,0 +1,193 @@
+.network-alumni {
+  padding: 0;
+  background-color: var(--primary-bg);
+  font-family: 'Outfit', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.network-alumni-header {
+  padding: 5rem 2rem 3rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title.centered {
+  font-size: 3rem;
+  font-weight: 700;
+  background: var(--header-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-family: 'Outfit', sans-serif;
+}
+
+.network-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Outfit', sans-serif;
+}
+
+.network-logos-container {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 2rem 2rem;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.network-logos-row-wrapper {
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.network-logos-row-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+.network-logos-row {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: fit-content;
+}
+
+.network-logos-row-left {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.network-logos-row-right {
+  animation: scrollRight 30s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.network-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  min-width: 150px;
+  padding: 1rem;
+  flex-shrink: 0;
+}
+
+.network-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.network-logo-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.network-logo-image:hover {
+  transform: scale(1.3);
+}
+
+@media (max-width: 968px) {
+  .network-logos-row {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .network-alumni {
+    padding: 0;
+  }
+
+  .network-logos-container {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .network-logos-row {
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .network-logo-item {
+    height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .network-logos-row {
+    gap: 1.5rem;
+  }
+}
+
+.fade-in-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Prevent float animation on carousel elements - only allow horizontal scroll */
+.network-logo-item,
+.network-logo-image,
+.fade-in-item .network-logo-item,
+.fade-in-item .network-logo-image,
+.network-logos-container .network-logo-item,
+.network-logos-container .network-logo-image {
+  animation: none !important;
+}
+
+/* Keep scroll animations on rows - these handle horizontal movement */
+.network-logos-row-left {
+  animation: scrollLeft 30s linear infinite;
+}
+
+.network-logos-row-right {
+  animation: scrollRight 30s linear infinite;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

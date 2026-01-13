@@ -1,0 +1,23 @@
+.typewriter-cursor {
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.typewriter-complete {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.typewriter-complete:hover {
+  transform: scale(1.05);
+  color: var(--accent-blue, #A6B4E8);
+}
+

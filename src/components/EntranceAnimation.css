@@ -1,0 +1,142 @@
+.entrance-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  overflow: hidden;
+  font-family: 'Outfit', sans-serif;
+  background: var(--header-gradient); /* Same gradient as header text */
+  animation: fadeOutEntrance 1s ease-out 5.5s forwards;
+}
+
+@keyframes fadeOutEntrance {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.entrance-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.entrance-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  opacity: 1;
+}
+
+.entrance-text-line {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.entrance-text-line-top {
+  margin-bottom: 0;
+}
+
+.entrance-text-line-bottom {
+  margin-top: 0;
+}
+
+.entrance-bar {
+  width: 100%;
+  height: 2px;
+  background-color: #666666; /* Dark grey horizontal line */
+  position: relative;
+  margin: 0.5rem 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.entrance-bar.visible {
+  opacity: 1;
+}
+
+.entrance-panel {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #191F33; /* Dark blue - primary bg */
+  z-index: 3;
+}
+
+.entrance-panel-top {
+  top: 50%;
+  height: 0;
+  transition: height 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.entrance-panel-bottom {
+  bottom: 50%;
+  height: 0;
+  transition: height 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.entrance-panel.expanding {
+  height: 50vh;
+}
+
+.entrance-word {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff; /* White text on light blue background */
+  letter-spacing: -0.02em;
+  line-height: 1;
+  font-family: 'Outfit', sans-serif;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.entrance-word.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+@media (max-width: 968px) {
+  .entrance-word {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .entrance-text-line {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .entrance-word {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .entrance-text-line {
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .entrance-word {
+    font-size: 1.2rem;
+  }
+}
+

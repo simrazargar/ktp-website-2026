@@ -1,0 +1,48 @@
+.content-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.content-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.content-visible * {
+  animation: float 3s ease-in-out infinite;
+}
+
+.content-visible img,
+.content-visible button,
+.content-visible .btn {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Prevent float animation on carousel elements */
+.content-visible .social-carousel-item,
+.content-visible .social-carousel-image,
+.content-visible .network-logo-item,
+.content-visible .network-logo-image {
+  animation: none !important;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.content-visible img {
+  animation-delay: 0.2s;
+}
+
+.content-visible button,
+.content-visible .btn {
+  animation-delay: 0.4s;
+}
+

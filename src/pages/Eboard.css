@@ -1,0 +1,198 @@
+.eboard-page {
+  min-height: 100vh;
+  background-color: var(--primary-bg);
+  font-family: 'Outfit', sans-serif;
+  padding-top: 80px;
+}
+
+.eboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+}
+
+.eboard-title {
+  font-size: 4rem;
+  font-weight: 700;
+  background: var(--header-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.eboard-subtitle {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 4rem;
+  font-family: 'Outfit', sans-serif;
+}
+
+.eboard-separator {
+  width: 100%;
+  max-width: 1200px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 auto 4rem;
+}
+
+.eboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+  margin-top: 0;
+}
+
+.eboard-grid > .eboard-card:last-child:nth-child(3n+1) {
+  grid-column: 2;
+}
+
+.eboard-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eboard-image-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: #d3d3d3;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.eboard-image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  display: block;
+  position: relative;
+}
+
+.eboard-image-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.eboard-image-link:hover {
+  transform: scale(1.05);
+}
+
+.eboard-image-link::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  width: 32px;
+  height: 32px;
+  background-image: url('/ktp-eboard-linkedin-icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.eboard-image-link:hover::after {
+  opacity: 0.9;
+}
+
+.eboard-image-clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.eboard-image-clickable:hover {
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.1);
+}
+
+.eboard-role {
+  font-size: 1rem;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+}
+
+.eboard-name {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+}
+
+@media (max-width: 968px) {
+  .eboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .eboard-container {
+    padding: 4rem 1.5rem;
+  }
+
+  .eboard-title {
+    font-size: 2.5rem;
+  }
+
+  .eboard-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+
+  .eboard-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .eboard-image-placeholder {
+    max-width: 300px;
+  }
+}
+
+.fade-in-item {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards, float 3s ease-in-out infinite;
+  animation-delay: 0s, 1s;
+}
+
+.fade-in-item .eboard-card {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+

@@ -1,0 +1,18 @@
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #191F33;
+}
+
+.app-content {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), clip-path 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-content.fade-in {
+  opacity: 1;
+  clip-path: inset(0 0 0% 0);
+}
+
+
