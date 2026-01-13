@@ -43,7 +43,7 @@ function EntranceAnimation({ onComplete }) {
       if (onComplete) {
         onComplete()
       }
-    }, 6500) // Total animation duration (including fade out)
+    }, 4500) // Total animation duration (including fade out) - shortened from 6500ms
 
     return () => {
       clearTimeout(word1Timer)
