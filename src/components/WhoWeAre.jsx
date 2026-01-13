@@ -28,20 +28,11 @@ function WhoWeAre({ shouldStart = null, onSectionComplete }) {
         {showContent && (
           <div className="who-we-are-text fade-in-item" style={{ animationDelay: '0.1s' }}>
             <p className="who-we-are-description">
-              We are USC's first professional technology fraternity established in 2023. Our members and alumni come from diverse backgrounds and academic disciplines, but we are all passionate about exploring technology and its real-world applications. Each semester, members are given the opportunity to participate in professional development workshops, networking and social events, and engage in real-world projects with startups. We also encourage continuous learning, collaboration, leadership, and a strong sense of brotherhood that extends beyond the classroom. Check out our newest member class below.
+              We are USC's first professional technology fraternity established in 2023. Our members and alumni come from diverse backgrounds and academic disciplines, but we are all passionate about exploring technology and its real-world applications. Each semester, members are given the opportunity to participate in professional development workshops, networking and social events, and engage in real-world projects with startups. We also encourage continuous learning, collaboration, leadership, and a strong sense of brotherhood that extends beyond the classroom.
             </p>
           </div>
         )}
       </div>
-      {showContent && (
-        <div className="who-we-are-image-container fade-in-item" style={{ animationDelay: '0.3s' }}>
-          <img 
-            src="/ktp-pledge.jpg" 
-            alt="KTP Newest Pledge Class" 
-            className="who-we-are-image"
-          />
-        </div>
-      )}
     </section>
   )
 }
