@@ -235,14 +235,14 @@ function ClientServices() {
             </div>
             <div className="client-card">
               <div className="client-logo-container">
-                <img src="/ktp-crossroads.png" alt="CrossRoads" className="client-logo" />
+                <img src="/ktp-crossroads.png" alt="CrossRoads" className="client-logo client-logo-contain" />
               </div>
               <h3 className="client-name">CrossRoads</h3>
               <p className="client-description">{pastClients[1].description}</p>
             </div>
             <div className="client-card">
               <div className="client-logo-container">
-                <img src="/peregrine-logo.png" alt="Peregrine Consulting" className="client-logo" />
+                <img src="/ktp-peregrine-consulting-logo.jpg" alt="Peregrine Consulting" className="client-logo" />
               </div>
               <h3 className="client-name">Peregrine Consulting</h3>
               <p className="client-description">{pastClients[2].description}</p>
