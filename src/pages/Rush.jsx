@@ -8,9 +8,15 @@ function Rush() {
   const [currentSection, setCurrentSection] = useState(0) // 0: Banner, 1: Timeline, 2: FAQ
   const [bannerComplete, setBannerComplete] = useState(false)
   const [rushTitleComplete, setRushTitleComplete] = useState(false)
+  const [subtitleVisible, setSubtitleVisible] = useState(false)
+  const [imageVisible, setImageVisible] = useState(false)
+  const [faqVisible, setFaqVisible] = useState(false)
   const [allContentComplete, setAllContentComplete] = useState(false)
   const rushSubtitleRef = useRef(null)
   const timelineRef = useRef(null)
+  const timelineImageRef = useRef(null)
+  const faqTitleRef = useRef(null)
+  const faqItemsRef = useRef([])
 
   const toggleFAQ = (index) => {
     setOpenFAQ(openFAQ === index ? null : index)
@@ -19,23 +25,64 @@ function Rush() {
   // Make elements visible immediately when they're rendered
   useEffect(() => {
     if (rushTitleComplete) {
-      // Add visible class to subtitle and timeline immediately after rush title completes
+      // Add visible class to subtitle immediately after rush title completes
       setTimeout(() => {
         if (rushSubtitleRef.current) {
           rushSubtitleRef.current.classList.add('visible')
-        }
-        if (timelineRef.current) {
-          timelineRef.current.classList.add('visible')
+          setSubtitleVisible(true)
         }
       }, 50)
-      
-      // Wait for FAQ section to be visible (fade-in-on-scroll elements)
-      // Give enough time for all content to appear
-      setTimeout(() => {
-        setAllContentComplete(true)
-      }, 2000)
     }
   }, [rushTitleComplete])
+
+  // Fade in image after subtitle animation completes
+  useEffect(() => {
+    if (subtitleVisible) {
+      // Wait for subtitle fade-in animation to complete (800ms) plus a small delay
+      const timer = setTimeout(() => {
+        setImageVisible(true)
+        if (timelineImageRef.current) {
+          timelineImageRef.current.classList.add('visible')
+        }
+      }, 900) // 800ms animation + 100ms delay
+      
+      return () => clearTimeout(timer)
+    }
+  }, [subtitleVisible])
+
+  // Fade in FAQ section after image animation completes
+  useEffect(() => {
+    if (imageVisible) {
+      // Wait for image fade-in animation to complete (800ms) plus a small delay
+      const timer = setTimeout(() => {
+        setFaqVisible(true)
+        if (faqTitleRef.current) {
+          faqTitleRef.current.classList.add('visible')
+        }
+        // Fade in FAQ items with a slight stagger
+        faqItemsRef.current.forEach((ref, index) => {
+          if (ref) {
+            setTimeout(() => {
+              ref.classList.add('visible')
+            }, index * 100)
+          }
+        })
+      }, 900) // 800ms animation + 100ms delay
+      
+      return () => clearTimeout(timer)
+    }
+  }, [imageVisible])
+
+  // Set all content complete after FAQ fades in
+  useEffect(() => {
+    if (faqVisible) {
+      const timer = setTimeout(() => {
+        setAllContentComplete(true)
+      }, 1500)
+      
+      return () => clearTimeout(timer)
+    }
+  }, [faqVisible])
 
   const faqs = [
     {
@@ -103,37 +150,39 @@ function Rush() {
                 />
               </h2>
               {rushTitleComplete && (
-                <p ref={rushSubtitleRef} className="rush-subtitle fade-in-on-scroll">
-                  Applications for Spring '26 are now open!
-                </p>
+                <>
+                  <p ref={rushSubtitleRef} className="rush-subtitle fade-in-on-scroll">
+                    Applications for Spring '26 are now open!
+                  </p>
+                  <div className="rush-timeline-container">
+                    <img 
+                      ref={timelineImageRef}
+                      src="/ktp-rushevents.png" 
+                      alt="Rush Events Timeline" 
+                      className="rush-events-image fade-in-on-scroll"
+                    />
+                  </div>
+                </>
               )}
             </>
           )}
         </div>
       </section>
 
-      {/* Timeline Section */}
-      {rushTitleComplete && (
-        <section 
-          ref={timelineRef}
-          className="rush-timeline-section fade-in-on-scroll"
-        >
-          <div className="rush-timeline-container">
-            <img src="/ktpRushEvents.png" alt="Rush Events Timeline" className="rush-events-image" />
-          </div>
-        </section>
-      )}
-
       {/* FAQ Section */}
       <section className="rush-faq-section">
         <div className="rush-faq-container">
-          <h2 className="faq-title fade-in-on-scroll">
+          <h2 
+            ref={faqTitleRef}
+            className="faq-title fade-in-on-scroll"
+          >
             Frequently Asked Questions
           </h2>
           <div className="faq-list">
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
+                ref={el => faqItemsRef.current[index] = el}
                 className="faq-item fade-in-on-scroll"
               >
                 <button

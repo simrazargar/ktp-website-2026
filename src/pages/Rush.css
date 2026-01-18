@@ -66,40 +66,32 @@
   font-size: 1.3rem;
   color: #ffffff;
   font-family: 'Outfit', sans-serif;
-  margin: 0;
+  margin: 0 0 3rem 0;
   opacity: 0.9;
 }
 
 /* Timeline Section */
 .rush-timeline-section {
   background-color: var(--primary-bg);
-  padding: 2rem 0;
+  padding: 4rem 0;
 }
 
 .rush-timeline-container {
-  width: 100%;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: calc(100% + 4rem);
+  margin: 6rem -2rem 0 -2rem;
+  padding: 0;
 }
 
 .rush-events-image {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.rush-events-image:hover {
-  transform: scale(1.05);
 }
 
 /* FAQ Section */
 .rush-faq-section {
   background-color: var(--primary-bg);
-  padding: 8rem 2rem;
+  padding: 3rem 2rem 8rem 2rem;
 }
 
 .rush-faq-container {
@@ -212,7 +204,17 @@
   }
 
   .rush-timeline-section {
+    padding: 2rem 0;
+  }
+
+  .rush-timeline-container {
+    width: calc(100% + 3rem);
+    margin: 2rem -1.5rem 0 -1.5rem;
     padding: 0;
+  }
+
+  .rush-events-image {
+    width: 100%;
   }
 
   .rush-faq-section {
