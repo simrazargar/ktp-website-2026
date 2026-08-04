@@ -45,7 +45,7 @@ function Footer({ variant = 'dark', showWhenReady }) {
           <a href="https://www.instagram.com/ktp.usc?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
             <img src="/ktpInstaLogo.png" alt="Instagram" className="social-icon-image" />
           </a>
-          <a href="https://www.linkedin.com/company/kappa-theta-pi-usc/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/ktp-tau-chapter/posts/?feedView=all" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
             <img src="/ktpLinkedInLogo.png" alt="LinkedIn" className="social-icon-image" />
           </a>
         </div>

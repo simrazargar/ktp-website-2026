@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Footer from '../components/Footer'
 import TypewriterText from '../components/TypewriterText'
+import InstagramEmbed from '../components/InstagramEmbed'
 import './Rush.css'
 
 function Rush() {
@@ -13,8 +14,7 @@ function Rush() {
   const [faqVisible, setFaqVisible] = useState(false)
   const [allContentComplete, setAllContentComplete] = useState(false)
   const rushSubtitleRef = useRef(null)
-  const timelineRef = useRef(null)
-  const timelineImageRef = useRef(null)
+  const instagramEmbedRef = useRef(null)
   const faqTitleRef = useRef(null)
   const faqItemsRef = useRef([])
 
@@ -35,14 +35,14 @@ function Rush() {
     }
   }, [rushTitleComplete])
 
-  // Fade in image after subtitle animation completes
+  // Fade in Instagram embed after subtitle animation completes
   useEffect(() => {
     if (subtitleVisible) {
       // Wait for subtitle fade-in animation to complete (800ms) plus a small delay
       const timer = setTimeout(() => {
         setImageVisible(true)
-        if (timelineImageRef.current) {
-          timelineImageRef.current.classList.add('visible')
+        if (instagramEmbedRef.current) {
+          instagramEmbedRef.current.classList.add('visible')
         }
       }, 900) // 800ms animation + 100ms delay
       
@@ -50,7 +50,7 @@ function Rush() {
     }
   }, [subtitleVisible])
 
-  // Fade in FAQ section after image animation completes
+  // Fade in FAQ section after Instagram embed animation completes
   useEffect(() => {
     if (imageVisible) {
       // Wait for image fade-in animation to complete (800ms) plus a small delay
@@ -124,7 +124,7 @@ function Rush() {
         <div className="rush-banner-text">
           <h1 className="rush-season">
             <TypewriterText 
-              text="Spring '26"
+              text="Fall '26"
               speed={80}
               shouldStart={currentSection === 0}
               onComplete={() => {
@@ -152,15 +152,13 @@ function Rush() {
               {rushTitleComplete && (
                 <>
                   <p ref={rushSubtitleRef} className="rush-subtitle fade-in-on-scroll">
-                    Applications for Spring '26 are now open!
+                    Applications for Fall 26' will be opening next month.
                   </p>
-                  <div className="rush-timeline-container">
-                    <img 
-                      ref={timelineImageRef}
-                      src="/ktp-rushevents.png" 
-                      alt="Rush Events Timeline" 
-                      className="rush-events-image fade-in-on-scroll"
-                    />
+                  <div
+                    ref={instagramEmbedRef}
+                    className="rush-instagram-container fade-in-on-scroll"
+                  >
+                    <InstagramEmbed />
                   </div>
                 </>
               )}

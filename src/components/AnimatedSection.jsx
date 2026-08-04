@@ -27,3 +27,4 @@ function AnimatedSection({ headerText, headerClassName = '', speed = 60, childre
 
 export default AnimatedSection
 
+
