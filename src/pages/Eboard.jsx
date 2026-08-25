@@ -21,7 +21,7 @@ function Eboard() {
       name: 'Nick Stitle'
     },
     {
-      role: 'Treasurer',
+      role: 'Treasurer & Recruitment Intern',
       name: 'Ashima Gupta'
     },
     {
@@ -29,7 +29,11 @@ function Eboard() {
       name: 'Rylnn Chavez'
     },
     {
-      role: 'Director of Membership',
+      role: 'Director of Membership & DEI',
+      name: 'Ting Ting Chen'
+    },
+    {
+      role: 'Active Liaison',
       name: 'Tanzil Hussain'
     },
     {
@@ -49,8 +53,16 @@ function Eboard() {
       name: 'Cici He'
     },
     {
-      role: 'Social Events Coordinator',
-      name: 'Josh Kang'
+      role: 'Marketing Intern',
+      name: 'Sophie Chuang'
+    },
+    {
+      role: 'Co-Social Chair',
+      name: 'Britney Doan'
+    },
+    {
+      role: 'Co-Social Chair',
+      name: 'Aaron Jacob Santos'
     }
   ]
 
