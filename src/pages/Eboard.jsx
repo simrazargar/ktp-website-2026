@@ -62,7 +62,7 @@ function Eboard() {
     },
     {
       role: 'Co-Social Chair',
-      name: 'Aaron Jacob Santos'
+      name: 'Aaron Santos'
     }
   ]
 
