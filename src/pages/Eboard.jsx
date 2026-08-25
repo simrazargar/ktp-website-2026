@@ -14,7 +14,7 @@ function Eboard() {
     },
     {
       role: 'Co-President',
-      name: 'Samantha Guernsey'
+      name: 'Allison Lin'
     },
     {
       role: 'Secretary',
@@ -22,7 +22,7 @@ function Eboard() {
     },
     {
       role: 'Treasurer',
-      name: 'Nicole Amer'
+      name: 'Ashima Gupta'
     },
     {
       role: 'Director of Recruitment',
@@ -33,12 +33,16 @@ function Eboard() {
       name: 'Tanzil Hussain'
     },
     {
-      role: 'Director of Technology Development',
-      name: 'Simra Zargar'
+      role: 'Co-Director of Technology Development',
+      name: 'Alena Talreja'
+    },
+     {
+      role: 'Co-Director of Technology Development',
+      name: 'Cindy Chang'
     },
     {
       role: 'Director of Professional and Academic Development',
-      name: 'Allison Lin'
+      name: 'Angelaa Guptaa'
     },
     {
       role: 'Director of Marketing',
