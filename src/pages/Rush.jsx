@@ -10,11 +10,12 @@ function Rush() {
   const [bannerComplete, setBannerComplete] = useState(false)
   const [rushTitleComplete, setRushTitleComplete] = useState(false)
   const [subtitleVisible, setSubtitleVisible] = useState(false)
+  const [timelineVisible, setTimelineVisible] = useState(false)
   const [imageVisible, setImageVisible] = useState(false)
   const [faqVisible, setFaqVisible] = useState(false)
   const [allContentComplete, setAllContentComplete] = useState(false)
+
   const rushSubtitleRef = useRef(null)
-  const [timelineVisible, setTimelineVisible] = useState(false)
   const timelineTitleRef = useRef(null)
   const timelineItemsRef = useRef([])
   const instagramEmbedRef = useRef(null)
@@ -25,10 +26,9 @@ function Rush() {
     setOpenFAQ(openFAQ === index ? null : index)
   }
 
-  // Make elements visible immediately when they're rendered
+  // Fade in subtitle after rush title completes
   useEffect(() => {
     if (rushTitleComplete) {
-      // Add visible class to subtitle immediately after rush title completes
       setTimeout(() => {
         if (rushSubtitleRef.current) {
           rushSubtitleRef.current.classList.add('visible')
@@ -38,7 +38,7 @@ function Rush() {
     }
   }, [rushTitleComplete])
 
-  // Fade in Instagram embed after subtitle animation completes
+  // Fade in Timeline section after subtitle completes
   useEffect(() => {
     if (subtitleVisible) {
       const timer = setTimeout(() => {
@@ -54,82 +54,94 @@ function Rush() {
           }
         })
       }, 900)
-  
+
       return () => clearTimeout(timer)
     }
   }, [subtitleVisible])
-    
-  // Fade in FAQ section after Instagram embed animation completes
-// Fade in Timeline section after Instagram embed animation completes
-useEffect(() => {
-  if (imageVisible) {
-    const timer = setTimeout(() => {
-      setTimelineVisible(true)
-      if (timelineTitleRef.current) {
-        timelineTitleRef.current.classList.add('visible')
-      }
-      timelineItemsRef.current.forEach((ref, index) => {
-        if (ref) {
-          setTimeout(() => {
-            ref.classList.add('visible')
-          }, index * 100)
+
+  // Fade in Instagram embed after Timeline animation completes
+  useEffect(() => {
+    if (timelineVisible) {
+      const timer = setTimeout(() => {
+        setImageVisible(true)
+        if (instagramEmbedRef.current) {
+          instagramEmbedRef.current.classList.add('visible')
         }
-      })
-    }, 900)
+      }, 900)
 
-    return () => clearTimeout(timer)
-  }
-}, [imageVisible])
+      return () => clearTimeout(timer)
+    }
+  }, [timelineVisible])
 
-// Fade in FAQ section after Timeline animation completes
-useEffect(() => {
- if (timelineVisible) {
-    const timer = setTimeout(() => {
-      setImageVisible(true)
-      if (instagramEmbedRef.current) {
-        instagramEmbedRef.current.classList.add('visible')
-      }
-    }, 900)
+  // Fade in FAQ section after Instagram embed animation completes
+  useEffect(() => {
+    if (imageVisible) {
+      const timer = setTimeout(() => {
+        setFaqVisible(true)
+        if (faqTitleRef.current) {
+          faqTitleRef.current.classList.add('visible')
+        }
+        faqItemsRef.current.forEach((ref, index) => {
+          if (ref) {
+            setTimeout(() => {
+              ref.classList.add('visible')
+            }, index * 100)
+          }
+        })
+      }, 900)
 
-    return () => clearTimeout(timer)
-  }
-}, [timelineVisible])
+      return () => clearTimeout(timer)
+    }
+  }, [imageVisible])
 
-    return () => clearTimeout(timer)
-  }
-}, [timelineVisible])
-  
+  // Set all content complete after FAQ fades in
+  useEffect(() => {
+    if (faqVisible) {
+      const timer = setTimeout(() => {
+        setAllContentComplete(true)
+      }, 1500)
+
+      return () => clearTimeout(timer)
+    }
+  }, [faqVisible])
+
   const timelineEvents = [
-  {
-    date: '8/27',
-    title: 'Info Session #1',
-    time: '7:30 - 8:30 pm',
-    location: 'DMC 300A'
-  },
-  {
-    date: '8/31',
-    title: 'Speed Dating',
-    time: '7:30 - 8:30 pm',
-    location: 'SCA Courtyard'
-  },
-  {
-    date: '9/01',
-    title: 'Info Session #2',
-    time: '7:30 - 8:30 pm',
-    location: 'DMC 300A'
-  },
-  {
-    date: '9/02',
-    title: 'Resume Workshop',
-    time: '7:30 - 8:30 pm',
-    location: 'TBD'
-  }
-]
+    {
+      date: '8/27',
+      dateISO: '2026-08-27',
+      title: 'Info Session #1',
+      time: '7:30 - 8:30 pm',
+      location: 'DMC 300A'
+    },
+    {
+      date: '8/31',
+      dateISO: '2026-08-31',
+      title: 'Speed Dating',
+      time: '7:30 - 8:30 pm',
+      location: 'SCA Courtyard'
+    },
+    {
+      date: '9/01',
+      dateISO: '2026-09-01',
+      title: 'Info Session #2',
+      time: '7:30 - 8:30 pm',
+      location: 'DMC 300A'
+    },
+    {
+      date: '9/02',
+      dateISO: '2026-09-02',
+      title: 'Resume Workshop',
+      time: '7:30 - 8:30 pm',
+      location: 'TBD'
+    }
+  ]
+
   const lastEventDate = new Date(
-  `${timelineEvents[timelineEvents.length - 1].dateISO}T23:59:59`
+    `${timelineEvents[timelineEvents.length - 1].dateISO}T23:59:59`
   )
   const rushComplete = new Date() > lastEventDate
 
+  const faqs = [
     {
       question: 'Who can rush KTP?',
       answer: 'Any undergraduate student at USC is allowed to rush — we gladly accept (and encourage) rushees from all disciplines!'
@@ -160,15 +172,15 @@ useEffect(() => {
     <div className="rush-page">
       {/* Banner Section */}
       <section className="rush-banner">
-        <img 
-          src="/ktpRushHeader.jpeg" 
-          alt="Rush Header" 
+        <img
+          src="/ktpRushHeader.jpeg"
+          alt="Rush Header"
           className="rush-header-image"
           loading="eager"
         />
         <div className="rush-banner-text">
           <h1 className="rush-season">
-            <TypewriterText 
+            <TypewriterText
               text="Fall '26"
               speed={80}
               shouldStart={currentSection === 0}
@@ -183,7 +195,7 @@ useEffect(() => {
           {bannerComplete && (
             <>
               <h2 className="rush-title">
-                <TypewriterText 
+                <TypewriterText
                   text="Rush"
                   speed={80}
                   shouldStart={bannerComplete}
@@ -194,21 +206,22 @@ useEffect(() => {
                   }}
                 />
               </h2>
-        {rushTitleComplete && (
-          <>
-            <p ref={rushSubtitleRef} className="rush-subtitle fade-in-on-scroll">
-              Applications for Spring 27' will be opening next month.
-            </p>
-            {rushComplete && (
-              <p className="rush-complete-banner">
-                This semester's rush events have concluded — thanks to everyone who came out! Stay tuned for Spring '27.
-              </p>
-            )}
-          </>
-        )}
-
+              {rushTitleComplete && (
+                <>
+                  <p ref={rushSubtitleRef} className="rush-subtitle fade-in-on-scroll">
+                    Applications for Spring 27' will be opening next month.
+                  </p>
+                  {rushComplete && (
+                    <p className="rush-complete-banner">
+                      This semester's rush events have concluded — thanks to everyone who came out! Stay tuned for Spring '27.
+                    </p>
+                  )}
+                </>
+              )}
+            </>
+          )}
+        </div>
       </section>
-{/* end Banner */}
 
       {/* Timeline Section */}
       <section className="rush-timeline-section">
@@ -247,7 +260,7 @@ useEffect(() => {
       {/* FAQ Section */}
       <section className="rush-faq-section">
         <div className="rush-faq-container">
-          <h2 
+          <h2
             ref={faqTitleRef}
             className="faq-title fade-in-on-scroll"
           >
@@ -255,8 +268,8 @@ useEffect(() => {
           </h2>
           <div className="faq-list">
             {faqs.map((faq, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 ref={el => faqItemsRef.current[index] = el}
                 className="faq-item fade-in-on-scroll"
               >
