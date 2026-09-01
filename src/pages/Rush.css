@@ -31,7 +31,7 @@
 
 .rush-banner-text {
   background-color: var(--primary-bg);
-  padding: 5rem 2rem;
+  padding: 5rem 2rem 1rem;
   text-align: center;
   width: 100%;
   position: relative;
@@ -72,7 +72,7 @@
 
 /* Timeline Section */
 .rush-timeline-section {
-  padding: 80px 24px;
+  padding: 8px 24px 80px;
   display: flex;
   justify-content: center;
 }
@@ -149,6 +149,17 @@
   color: #9fb0d6;
   font-size: 0.9rem;
   margin: 0;
+}
+
+.timeline-instagram-note {
+  text-align: center;
+  margin-top: 32px;
+  color: #9fb0d6;
+  font-size: 0.95rem;
+}
+
+.timeline-instagram-note strong {
+  color: #c9d6f7;
 }
 
 .rush-instagram-container {
