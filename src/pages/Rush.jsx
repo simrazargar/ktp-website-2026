@@ -14,6 +14,9 @@ function Rush() {
   const [faqVisible, setFaqVisible] = useState(false)
   const [allContentComplete, setAllContentComplete] = useState(false)
   const rushSubtitleRef = useRef(null)
+  const [timelineVisible, setTimelineVisible] = useState(false)
+  const timelineTitleRef = useRef(null)
+  const timelineItemsRef = useRef([])
   const instagramEmbedRef = useRef(null)
   const faqTitleRef = useRef(null)
   const faqItemsRef = useRef([])
@@ -51,39 +54,75 @@ function Rush() {
   }, [subtitleVisible])
 
   // Fade in FAQ section after Instagram embed animation completes
-  useEffect(() => {
-    if (imageVisible) {
-      // Wait for image fade-in animation to complete (800ms) plus a small delay
-      const timer = setTimeout(() => {
-        setFaqVisible(true)
-        if (faqTitleRef.current) {
-          faqTitleRef.current.classList.add('visible')
+// Fade in Timeline section after Instagram embed animation completes
+useEffect(() => {
+  if (imageVisible) {
+    const timer = setTimeout(() => {
+      setTimelineVisible(true)
+      if (timelineTitleRef.current) {
+        timelineTitleRef.current.classList.add('visible')
+      }
+      timelineItemsRef.current.forEach((ref, index) => {
+        if (ref) {
+          setTimeout(() => {
+            ref.classList.add('visible')
+          }, index * 100)
         }
-        // Fade in FAQ items with a slight stagger
-        faqItemsRef.current.forEach((ref, index) => {
-          if (ref) {
-            setTimeout(() => {
-              ref.classList.add('visible')
-            }, index * 100)
-          }
-        })
-      }, 900) // 800ms animation + 100ms delay
-      
-      return () => clearTimeout(timer)
-    }
-  }, [imageVisible])
+      })
+    }, 900)
 
-  // Set all content complete after FAQ fades in
-  useEffect(() => {
-    if (faqVisible) {
-      const timer = setTimeout(() => {
-        setAllContentComplete(true)
-      }, 1500)
-      
-      return () => clearTimeout(timer)
-    }
-  }, [faqVisible])
+    return () => clearTimeout(timer)
+  }
+}, [imageVisible])
 
+// Fade in FAQ section after Timeline animation completes
+useEffect(() => {
+  if (timelineVisible) {
+    const timer = setTimeout(() => {
+      setFaqVisible(true)
+      if (faqTitleRef.current) {
+        faqTitleRef.current.classList.add('visible')
+      }
+      faqItemsRef.current.forEach((ref, index) => {
+        if (ref) {
+          setTimeout(() => {
+            ref.classList.add('visible')
+          }, index * 100)
+        }
+      })
+    }, 900)
+
+    return () => clearTimeout(timer)
+  }
+}, [timelineVisible])
+  
+  const timelineEvents = [
+  {
+    date: '8/27',
+    title: 'Info Session #1',
+    time: '7:30 - 8:30 pm',
+    location: 'DMC 300A'
+  },
+  {
+    date: '8/31',
+    title: 'Speed Dating',
+    time: '7:30 - 8:30 pm',
+    location: 'SCA Courtyard'
+  },
+  {
+    date: '9/01',
+    title: 'Info Session #2',
+    time: '7:30 - 8:30 pm',
+    location: 'DMC 300A'
+  },
+  {
+    date: '9/02',
+    title: 'Resume Workshop',
+    time: '7:30 - 8:30 pm',
+    location: 'TBD'
+  }
+]
+  
   const faqs = [
     {
       question: 'Who can rush KTP?',
@@ -166,6 +205,36 @@ function Rush() {
           )}
         </div>
       </section>
+
+      {/* Timeline Section */}
+<section className="rush-timeline-section">
+  <div className="rush-timeline-container">
+    <h2
+      ref={timelineTitleRef}
+      className="timeline-title fade-in-on-scroll"
+    >
+      Rush Schedule
+    </h2>
+    <div className="timeline-list">
+      {timelineEvents.map((event, index) => (
+        <div
+          key={index}
+          ref={el => timelineItemsRef.current[index] = el}
+          className="timeline-item fade-in-on-scroll"
+        >
+          <div className="timeline-date">{event.date}</div>
+          <div className="timeline-dot" />
+          <div className="timeline-content">
+            <h3 className="timeline-event-title">{event.title}</h3>
+            <p className="timeline-event-meta">
+              {event.time} · {event.location}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* FAQ Section */}
       <section className="rush-faq-section">
