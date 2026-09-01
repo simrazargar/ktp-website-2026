@@ -129,7 +129,7 @@ function Rush() {
       dateISO: '2026-09-02',
       title: 'Resume Workshop',
       time: '7:30 - 8:30 pm',
-      location: 'TBD'
+      location: 'DMC 300A'
     }
   ]
 
