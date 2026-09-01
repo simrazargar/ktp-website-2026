@@ -158,6 +158,17 @@
   padding: 0 1rem;
 }
 
+.rush-complete-banner {
+  margin-top: 16px;
+  padding: 12px 20px;
+  background: rgba(201, 214, 247, 0.08);
+  border: 1px solid rgba(201, 214, 247, 0.25);
+  border-radius: 8px;
+  color: #c9d6f7;
+  font-size: 1rem;
+  display: inline-block;
+}
+
 /* FAQ Section */
 .rush-faq-section {
   background-color: var(--primary-bg);
