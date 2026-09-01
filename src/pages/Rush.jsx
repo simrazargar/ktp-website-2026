@@ -217,7 +217,7 @@ function Rush() {
         </div>
       </section>
 
-      {/* Timeline Section */}
+ {/* Timeline Section */}
       <section className="rush-timeline-section">
         <div className="rush-timeline-container">
           <h2 ref={timelineTitleRef} className="timeline-title fade-in-on-scroll">
@@ -241,9 +241,11 @@ function Rush() {
               </div>
             ))}
           </div>
+          <p className="timeline-instagram-note">
+            Follow <strong>@ktp.usc</strong> on Instagram for the most accurate and up-to-date rush info.
+          </p>
         </div>
       </section>
-
       {/* Instagram Section */}
       <section className="rush-instagram-section">
         <div ref={instagramEmbedRef} className="rush-instagram-container fade-in-on-scroll">
