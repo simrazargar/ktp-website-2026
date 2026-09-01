@@ -117,16 +117,16 @@ function Eboard() {
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
-              ) : member.name === 'Samantha Guernsey' && member.role === 'Co-President' ? (
+              ) : member.name === 'Allison Lin' && member.role === 'Director of Professional and Academic Development' ? (
                 <a 
-                  href="https://www.linkedin.com/in/samguernsey/" 
+                  href="https://www.linkedin.com/in/allisonlin9/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="eboard-image-link"
                 >
                   <img 
-                    src="/sam-g.jpeg" 
-                    alt="Samantha Guernsey" 
+                    src="/allison-lin.jpeg" 
+                    alt="Allison Lin" 
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
@@ -179,19 +179,6 @@ function Eboard() {
                   <img 
                     src="/simra-zargar.jpeg" 
                     alt="Simra Zargar" 
-                    className="eboard-image eboard-image-clickable"
-                  />
-                </a>
-              ) : member.name === 'Allison Lin' && member.role === 'Director of Professional and Academic Development' ? (
-                <a 
-                  href="https://www.linkedin.com/in/allisonlin9/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="eboard-image-link"
-                >
-                  <img 
-                    src="/allison-lin.jpeg" 
-                    alt="Allison Lin" 
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
