@@ -41,18 +41,24 @@ function Rush() {
   // Fade in Instagram embed after subtitle animation completes
   useEffect(() => {
     if (subtitleVisible) {
-      // Wait for subtitle fade-in animation to complete (800ms) plus a small delay
       const timer = setTimeout(() => {
-        setImageVisible(true)
-        if (instagramEmbedRef.current) {
-          instagramEmbedRef.current.classList.add('visible')
+        setTimelineVisible(true)
+        if (timelineTitleRef.current) {
+          timelineTitleRef.current.classList.add('visible')
         }
-      }, 900) // 800ms animation + 100ms delay
-      
+        timelineItemsRef.current.forEach((ref, index) => {
+          if (ref) {
+            setTimeout(() => {
+              ref.classList.add('visible')
+            }, index * 100)
+          }
+        })
+      }, 900)
+  
       return () => clearTimeout(timer)
     }
   }, [subtitleVisible])
-
+    
   // Fade in FAQ section after Instagram embed animation completes
 // Fade in Timeline section after Instagram embed animation completes
 useEffect(() => {
@@ -77,20 +83,17 @@ useEffect(() => {
 
 // Fade in FAQ section after Timeline animation completes
 useEffect(() => {
-  if (timelineVisible) {
+ if (timelineVisible) {
     const timer = setTimeout(() => {
-      setFaqVisible(true)
-      if (faqTitleRef.current) {
-        faqTitleRef.current.classList.add('visible')
+      setImageVisible(true)
+      if (instagramEmbedRef.current) {
+        instagramEmbedRef.current.classList.add('visible')
       }
-      faqItemsRef.current.forEach((ref, index) => {
-        if (ref) {
-          setTimeout(() => {
-            ref.classList.add('visible')
-          }, index * 100)
-        }
-      })
     }, 900)
+
+    return () => clearTimeout(timer)
+  }
+}, [timelineVisible])
 
     return () => clearTimeout(timer)
   }
@@ -122,8 +125,11 @@ useEffect(() => {
     location: 'TBD'
   }
 ]
-  
-  const faqs = [
+  const lastEventDate = new Date(
+  `${timelineEvents[timelineEvents.length - 1].dateISO}T23:59:59`
+  )
+  const rushComplete = new Date() > lastEventDate
+
     {
       question: 'Who can rush KTP?',
       answer: 'Any undergraduate student at USC is allowed to rush — we gladly accept (and encourage) rushees from all disciplines!'
@@ -188,53 +194,55 @@ useEffect(() => {
                   }}
                 />
               </h2>
-              {rushTitleComplete && (
-                <>
-                  <p ref={rushSubtitleRef} className="rush-subtitle fade-in-on-scroll">
-                    Applications for Fall 26' will be opening next month.
+        {rushTitleComplete && (
+          <>
+            <p ref={rushSubtitleRef} className="rush-subtitle fade-in-on-scroll">
+              Applications for Spring 27' will be opening next month.
+            </p>
+            {rushComplete && (
+              <p className="rush-complete-banner">
+                This semester's rush events have concluded — thanks to everyone who came out! Stay tuned for Spring '27.
+              </p>
+            )}
+          </>
+        )}
+
+      </section>
+{/* end Banner */}
+
+      {/* Timeline Section */}
+      <section className="rush-timeline-section">
+        <div className="rush-timeline-container">
+          <h2 ref={timelineTitleRef} className="timeline-title fade-in-on-scroll">
+            Rush Schedule
+          </h2>
+          <div className="timeline-list">
+            {timelineEvents.map((event, index) => (
+              <div
+                key={index}
+                ref={el => timelineItemsRef.current[index] = el}
+                className="timeline-item fade-in-on-scroll"
+              >
+                <div className="timeline-date">{event.date}</div>
+                <div className="timeline-dot" />
+                <div className="timeline-content">
+                  <h3 className="timeline-event-title">{event.title}</h3>
+                  <p className="timeline-event-meta">
+                    {event.time} · {event.location}
                   </p>
-                  <div
-                    ref={instagramEmbedRef}
-                    className="rush-instagram-container fade-in-on-scroll"
-                  >
-                    <InstagramEmbed />
-                  </div>
-                </>
-              )}
-            </>
-          )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Timeline Section */}
-<section className="rush-timeline-section">
-  <div className="rush-timeline-container">
-    <h2
-      ref={timelineTitleRef}
-      className="timeline-title fade-in-on-scroll"
-    >
-      Rush Schedule
-    </h2>
-    <div className="timeline-list">
-      {timelineEvents.map((event, index) => (
-        <div
-          key={index}
-          ref={el => timelineItemsRef.current[index] = el}
-          className="timeline-item fade-in-on-scroll"
-        >
-          <div className="timeline-date">{event.date}</div>
-          <div className="timeline-dot" />
-          <div className="timeline-content">
-            <h3 className="timeline-event-title">{event.title}</h3>
-            <p className="timeline-event-meta">
-              {event.time} · {event.location}
-            </p>
-          </div>
+      {/* Instagram Section */}
+      <section className="rush-instagram-section">
+        <div ref={instagramEmbedRef} className="rush-instagram-container fade-in-on-scroll">
+          <InstagramEmbed />
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* FAQ Section */}
       <section className="rush-faq-section">
