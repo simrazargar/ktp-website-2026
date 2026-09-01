@@ -41,7 +41,7 @@ function Hero({ shouldStart = null, onSectionComplete }) {
               </div>
               <div className="hero-buttons fade-in-item" style={{ animationDelay: '0.3s' }}>
                 <a 
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSdJ8i4ECcETaFgmVYEcN9oR73A3WUxSUbmlaIxTg4a9T1zPfQ/viewform" 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScfFBURiKVc7q7A6wJB1LdNHhNAMaU8yaCwGNt3EPQOBL3LaQ/viewform" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="btn btn-primary"
