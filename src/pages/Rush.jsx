@@ -29,14 +29,11 @@ function Rush() {
   // Fade in subtitle after rush title completes
   useEffect(() => {
     if (rushTitleComplete) {
-      setTimeout(() => {
-        if (rushSubtitleRef.current) {
-          rushSubtitleRef.current.classList.add('visible')
+        setTimeout(() => {
           setSubtitleVisible(true)
-        }
-      }, 50)
-    }
-  }, [rushTitleComplete])
+        }, 50)
+      }
+    }, [rushTitleComplete])
 
   // Fade in Timeline section after subtitle completes
   useEffect(() => {
@@ -208,9 +205,6 @@ function Rush() {
               </h2>
               {rushTitleComplete && (
                 <>
-                  <p ref={rushSubtitleRef} className="rush-subtitle fade-in-on-scroll">
-                    Applications for Spring 27' will be opening next month.
-                  </p>
                   {rushComplete && (
                     <p className="rush-complete-banner">
                       This semester's rush events have concluded — thanks to everyone who came out! Stay tuned for Spring '27.
