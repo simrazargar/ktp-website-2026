@@ -241,9 +241,6 @@ function Rush() {
               </div>
             ))}
           </div>
-          <p className="timeline-instagram-note">
-            Follow <strong>@ktp.usc</strong> on Instagram for the most accurate and up-to-date rush info.
-          </p>
         </div>
       </section>
       {/* Instagram Section */}
