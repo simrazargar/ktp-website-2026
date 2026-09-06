@@ -207,7 +207,7 @@ function Rush() {
                 <>
                   {rushComplete && (
                     <p className="rush-complete-banner">
-                      This semester's rush events have concluded — thanks to everyone who came out! Stay tuned for Spring '27.
+                      Application for this semester has closed — thanks to everyone who came out! Stay tuned for Spring '27.
                     </p>
                   )}
                 </>
