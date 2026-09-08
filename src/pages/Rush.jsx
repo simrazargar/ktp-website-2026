@@ -133,10 +133,8 @@ function Rush() {
     }
   ]
 
-  const lastEventDate = new Date(
-    `${timelineEvents[timelineEvents.length - 1].dateISO}T23:59:59`
-  )
-  const rushComplete = new Date() > lastEventDate
+  const applicationDeadline = new Date('2026-09-11T12:00:00')
+  const rushComplete = new Date() > applicationDeadline
 
   const faqs = [
     {
