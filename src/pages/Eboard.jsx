@@ -138,7 +138,7 @@ function Eboard() {
                   className="eboard-image-link"
                 >
                   <img 
-                    src="Gupta_Ashima_Headshot.jpg" 
+                    src="/Gupta_Ashima_Headshot.jpg" 
                     alt="Ashima Gupta" 
                     className="eboard-image eboard-image-clickable"
                   />
