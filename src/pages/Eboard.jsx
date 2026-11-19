@@ -117,7 +117,7 @@ function Eboard() {
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
-              ) : member.name === 'Allison Lin' && member.role === 'Director of Professional and Academic Development' ? (
+              ) : member.name === 'Allison Lin' && member.role === 'Co-President' ? (
                 <a 
                   href="https://www.linkedin.com/in/allisonlin9/" 
                   target="_blank" 
@@ -130,16 +130,16 @@ function Eboard() {
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
-              ) : member.name === 'Nicole Amer' && member.role === 'Treasurer' ? (
+              ) : member.name === 'Ashima Gupta' && member.role === 'Treasurer' ? (
                 <a 
-                  href="https://www.linkedin.com/in/nicole-amer-17563a333/" 
+                  href="https://www.linkedin.com/in/ashima-gupta-business-finance/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="eboard-image-link"
                 >
                   <img 
-                    src="/nicole-amer.jpeg" 
-                    alt="Nicole Amer" 
+                    src="Gupta_Ashima_Headshot.jpg" 
+                    alt="Ashima Gupta" 
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
@@ -169,16 +169,16 @@ function Eboard() {
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
-              ) : member.name === 'Simra Zargar' && member.role === 'Director of Technology Development' ? (
+              ) : member.name === 'Alena Talreja' && member.role === 'Co-Director of Technology Development' ? (
                 <a 
-                  href="https://www.linkedin.com/in/simra-zargar-a3a254243/" 
+                  href="https://www.linkedin.com/in/alena-t-b12659260/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="eboard-image-link"
                 >
                   <img 
                     src="/simra-zargar.jpeg" 
-                    alt="Simra Zargar" 
+                    alt="Alena Talreja" 
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
@@ -195,16 +195,16 @@ function Eboard() {
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
-              ) : member.name === 'Josh Kang' && member.role === 'Social Events Coordinator' ? (
+               ) : member.name === 'Sophie Chuang' && member.role === 'Marketing Intern' ? (
                 <a 
-                  href="https://www.linkedin.com/in/joshkang3/" 
+                  href="https://www.linkedin.com/in/sophie-chuangg/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="eboard-image-link"
                 >
                   <img 
-                    src="/josh-kang.jpg" 
-                    alt="Josh Kang" 
+                    src="/Chuang_Sophie_Headshot.JPG" 
+                    alt="Sophie Chuang" 
                     className="eboard-image eboard-image-clickable"
                   />
                 </a>
